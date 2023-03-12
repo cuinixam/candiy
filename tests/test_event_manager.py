@@ -1,4 +1,5 @@
 # create tests for EventManager
+import pytest
 from candiy.presenter.events import EventID
 from candiy.presenter.events_manager import EventManager
 
@@ -41,3 +42,23 @@ def test_unsubscribe():
     event_manager.unsubscribe(EventID.HEARTBEAT, my_callback)
     trigger()
     assert not subscriber_notified
+
+
+def test_is_already_subscribed():
+    def my_callback():
+        pass
+
+    event_manager = EventManager()
+    event_manager.subscribe(EventID.HEARTBEAT, my_callback)
+    assert event_manager.is_already_subscribed(EventID.HEARTBEAT, my_callback)
+    assert not event_manager.is_already_subscribed(EventID.HEARTBEAT, lambda: None)
+
+
+def test_can_not_subscribe_twice():
+    def my_callback():
+        pass
+
+    event_manager = EventManager()
+    event_manager.subscribe(EventID.HEARTBEAT, my_callback)
+    with pytest.raises(ValueError):
+        event_manager.subscribe(EventID.HEARTBEAT, my_callback)

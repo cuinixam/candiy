@@ -17,7 +17,14 @@ class EventManager:
             callback()
 
     def subscribe(self, event_id: EventID, callback: callable):
+        if self.is_already_subscribed(event_id, callback):
+            raise ValueError(
+                f"Callback {callback} is already subscribed to event {event_id}"
+            )
         self._events.setdefault(event_id, []).append(callback)
 
     def unsubscribe(self, event_id: EventID, callback: callable):
         self._events[event_id].remove(callback)
+
+    def is_already_subscribed(self, event_id: EventID, callback: callable) -> bool:
+        return callback in self._events.get(event_id, [])
