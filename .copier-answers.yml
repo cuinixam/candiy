@@ -1,0 +1,19 @@
+# Changes here will be overwritten by Copier
+_commit: 3b3a765
+_src_path: .
+add_me_as_contributor: false
+copyright_year: '2022'
+documentation: true
+email: me@cuinixam.com
+full_name: cuinixam
+github_username: cuinixam
+initial_commit: false
+open_source_license: MIT
+package_name: candiy
+project_name: candiy
+project_short_description: GUI to monitor a CAN network and communicate with an ECU.
+project_slug: candiy
+run_poetry_install: false
+setup_github: false
+setup_pre_commit: true
+
