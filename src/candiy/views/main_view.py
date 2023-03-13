@@ -1,6 +1,6 @@
 import customtkinter
 from candiy.presenter.events import EventID
-from candiy.presenter.events_manager import EventManager
+from candiy.presenter.event_manager import EventManager
 
 from candiy.views.icons import Icons
 from candiy.views.view import View

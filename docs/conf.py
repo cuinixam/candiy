@@ -2,6 +2,13 @@
 #
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
+from pathlib import Path
+import sys
+
+sources_path = Path(__file__).parent.parent.joinpath("src/candiy")
+assert sources_path.exists()
+sys.path.insert(0, sources_path.as_posix())
+
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -22,6 +29,11 @@ extensions.append("m2r")
 # draw.io config - @see https://pypi.org/project/sphinxcontrib-drawio/
 extensions.append("sphinxcontrib.drawio")
 drawio_default_transparency = True
+
+extensions.extend(
+    ["sphinx.ext.autodoc", "sphinx.ext.autosummary", "sphinx.ext.napoleon"]
+)
+
 
 # The suffix of source filenames.
 source_suffix = [

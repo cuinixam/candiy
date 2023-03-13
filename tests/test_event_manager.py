@@ -1,7 +1,7 @@
 # create tests for EventManager
 import pytest
 from candiy.presenter.events import EventID
-from candiy.presenter.events_manager import EventManager
+from candiy.presenter.event_manager import EventManager
 
 
 def test_event_manager_create_event_trigger():

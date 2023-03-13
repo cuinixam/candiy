@@ -1,5 +1,5 @@
 from typing import Protocol
-from candiy.presenter.events_manager import EventManager
+from candiy.presenter.event_manager import EventManager
 from candiy.views.view import View
 
 

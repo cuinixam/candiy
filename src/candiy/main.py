@@ -1,5 +1,5 @@
 from candiy.presenter.events import EventID
-from candiy.presenter.events_manager import EventManager
+from candiy.presenter.event_manager import EventManager
 from candiy.presenter.presenter import Presenter
 from candiy.views.main_view import MainView
 from candiy.views.view import View
