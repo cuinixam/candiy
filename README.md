@@ -1,4 +1,4 @@
-# candiy
+# Readme
 
 <p align="center">
   <a href="https://github.com/cuinixam/candiy/actions/workflows/ci.yml?query=branch%3Amain">

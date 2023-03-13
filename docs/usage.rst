@@ -1,4 +1,5 @@
-# Usage
+Usage
+#####
 
 To use this package, import it:
 

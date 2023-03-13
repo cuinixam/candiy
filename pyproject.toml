@@ -14,9 +14,7 @@ classifiers = [
     "Operating System :: OS Independent",
     "Topic :: Software Development :: Libraries",
 ]
-packages = [
-    { include = "candiy", from = "src" },
-]
+packages = [{ include = "candiy", from = "src" }]
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/cuinixam/candiy/issues"
@@ -39,6 +37,8 @@ optional = true
 myst-parser = ">=0.16"
 sphinx = ">=4.0"
 sphinx-rtd-theme = ">=1.0"
+sphinxcontrib-drawio = ">=0.0.16"
+m2r = "^0.3.1"
 
 [tool.semantic_release]
 branch = "main"
@@ -76,10 +76,7 @@ no_implicit_optional = true
 show_error_codes = true
 warn_unreachable = true
 warn_unused_ignores = true
-exclude = [
-    'docs/.*',
-    'setup.py',
-]
+exclude = ['docs/.*', 'setup.py']
 
 [[tool.mypy.overrides]]
 module = "tests.*"

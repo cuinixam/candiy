@@ -38,7 +38,7 @@
             }
         },
         {
-            "label": "build docs",
+            "label": "generate docs",
             "command": "poetry run sphinx-build ${workspaceFolder}/docs ${workspaceFolder}/docs/_build",
             "type": "shell",
             "presentation": {
@@ -50,7 +50,7 @@
             }
         },
         {
-            "label": "open docs",
+            "label": "open docs index.html",
             "command": "${workspaceFolder}/docs/_build/index.html",
             "type": "shell",
             "presentation": {
