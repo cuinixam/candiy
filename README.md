@@ -73,3 +73,5 @@ This package was created with
 [Copier](https://copier.readthedocs.io/) and the
 [browniebroke/pypackage-template](https://github.com/browniebroke/pypackage-template)
 project template.
+
+The icons were created from [Tabler Icons](https://tabler-icons.io/).
