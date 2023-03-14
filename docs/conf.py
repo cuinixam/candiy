@@ -25,9 +25,10 @@ extensions = []
 # markdown to rst (m2r) config - @see https://pypi.org/project/m2r/
 extensions.append("m2r")
 
+# TODO: enable this extension when is is supported by readthedocs
 # draw.io config - @see https://pypi.org/project/sphinxcontrib-drawio/
-extensions.append("sphinxcontrib.drawio")
-drawio_default_transparency = True
+# extensions.append("sphinxcontrib.drawio")
+# drawio_default_transparency = True
 
 extensions.extend(
     ["sphinx.ext.autodoc", "sphinx.ext.autosummary", "sphinx.ext.napoleon"]

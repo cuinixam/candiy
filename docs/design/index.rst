@@ -1,16 +1,14 @@
 Design
 ######
 
-.. drawio-image:: figures/design_pattern.drawio
-   :export-scale: 150
+.. image:: figures/design_pattern.png
 
 In this diagram, you can see the three main components: View, Presenter, and Event Manager.
 The Event Manager handles the events and subscriptions, while the Presenter mediates between the View and the underlying functionality.
 The View interacts with the user and triggers events that are handled by the Event Manager.
 The Presenter subscribes to the Event Manager to handle these events and updates the View accordingly.
 
-.. drawio-image:: figures/main_classes.drawio
-   :export-scale: 150
+.. image:: figures/main_classes.png
 
 The implementation above uses the Model-View-Presenter (MVP) design pattern along with the Event Manager to handle events and communication between the components.
 Here are some advantages of this implementation:
