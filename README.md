@@ -40,7 +40,7 @@ Install this via pip (or your favourite package manager):
 
 ## Start developing
 
-The project uses [Poetry] for dependencies management and packaging. Make sure you have it installed in your development machine. To install the development dependencies in a virtual environment, type:
+The project uses [Poetry](https://python-poetry.org/) for dependencies management and packaging. Make sure you have it installed in your development machine. To install the development dependencies in a virtual environment, type:
 
 ```shell
 poetry install
@@ -52,7 +52,20 @@ This will also generate a `poetry.lock` file, you should track this file in vers
 poetry run pytest
 ```
 
-Check out the [Poetry] documentation for more information on the available commands.
+Check out the [Poetry](https://python-poetry.org/) documentation for more information on the available commands.
+
+For those using [VS Code](https://code.visualstudio.com/) there are tasks defined for the most common commands:
+
+- install development dependencies
+- run tests
+- run all checks configured for pre-commit
+- generate documentation
+
+See the `.vscode/tasks.json` for more details.
+
+## Committing changes
+
+This repository uses [commitlint](https://github.com/conventional-changelog/commitlint) for checking if the commit message meets the [conventional commit format](https://www.conventionalcommits.org/en).
 
 ## Contributors ✨
 
