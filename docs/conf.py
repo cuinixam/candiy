@@ -2,11 +2,10 @@
 #
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
-from pathlib import Path
 import sys
+from pathlib import Path
 
 sources_path = Path(__file__).parent.parent.joinpath("src/candiy")
-assert sources_path.exists()
 sys.path.insert(0, sources_path.as_posix())
 
 

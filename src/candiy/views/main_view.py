@@ -1,13 +1,12 @@
-import customtkinter
-from tkinter import END, NO, W
-from tkinter import ttk
+from tkinter import END, NO, W, ttk
 from typing import Any, Callable, Dict, List, Union
 
-from candiy.presenter.events import EventID
+import customtkinter
+
 from candiy.presenter.event_manager import EventManager
+from candiy.presenter.events import EventID
 from candiy.views.icons import Icons
 from candiy.views.view import View
-
 
 customtkinter.set_appearance_mode("Dark")
 customtkinter.set_default_color_theme("blue")
@@ -25,7 +24,9 @@ class TraceViewData:
         self.channel = channel
         self.timestamp = timestamp
 
-    def __eq__(self, other):
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, TraceViewData):
+            return NotImplemented
         return (
             self.id,
             self.dlc,
@@ -65,7 +66,7 @@ class ToggleButton(customtkinter.CTkButton):
             image=self.image_off,
         )
 
-    def command(self):
+    def command(self) -> None:
         self.state = not self.state
         if self.state:
             self.configure(image=self.image_on)
@@ -74,14 +75,14 @@ class ToggleButton(customtkinter.CTkButton):
         if self._user_command:
             self._user_command()
 
-    def add_user_command(self, command: Callable[[], None]):
+    def add_user_command(self, command: Callable[[], None]) -> None:
         self._user_command = command
 
 
 class MainView(customtkinter.CTk, View):
-    def __init__(self, event_manager: EventManager = None):
+    def __init__(self, event_manager: EventManager):
         super().__init__()
-        self.event_manager = event_manager or EventManager()
+        self.event_manager = event_manager
         self.messages: Dict[str, TraceViewData] = {}
 
         # configure window
@@ -191,7 +192,7 @@ class MainView(customtkinter.CTk, View):
         self.trace_textbox.configure(state="disabled")
 
         # ========================================================
-        # create dignostics tab
+        # create diagnostics tab
         self.diagnostics_tab.grid_rowconfigure(0, weight=0)
         self.diagnostics_tab.grid_rowconfigure(1, weight=1)
         self.diagnostics_tab.grid_columnconfigure(0, weight=0)
@@ -242,30 +243,30 @@ class MainView(customtkinter.CTk, View):
         )
         self.status_label.grid(row=0, column=0)
 
-    def toolbar_button_heartbeat_command(self):
+    def toolbar_button_heartbeat_command(self) -> None:
         self.write_toggle_button_status(self.heartbeat_button)
 
-    def toolbar_button_spy_command(self):
+    def toolbar_button_spy_command(self) -> None:
         self.write_toggle_button_status(self.spy_button)
 
-    def toolbar_button_tester_mode_command(self):
+    def toolbar_button_tester_mode_command(self) -> None:
         self.write_toggle_button_status(self.tester_mode_button)
 
-    def toolbar_button_power_command(self):
+    def toolbar_button_power_command(self) -> None:
         self.write_toggle_button_status(self.power_button)
 
-    def toolbar_button_xcp_mode_command(self):
+    def toolbar_button_xcp_mode_command(self) -> None:
         self.write_toggle_button_status(self.xcp_mode_button)
 
-    def write_toggle_button_status(self, button: ToggleButton):
+    def write_toggle_button_status(self, button: ToggleButton) -> None:
         self.status_label.configure(
             text=f"{button.cget('text')} button is {'ON' if button.state else 'OFF' }"
         )
 
-    def update_text(self, text: str):
+    def update_text(self, text: str) -> None:
         return self.status_label.configure(text=text)
 
-    def update_trace_view(self, messages: Dict[str, TraceViewData]):
+    def update_trace_view(self, messages: Dict[str, TraceViewData]) -> None:
         self.messages.update(messages)
         existing_ids = self.trace_treeview.get_children("")
         for id, message in self.messages.items():
@@ -299,14 +300,14 @@ class MainView(customtkinter.CTk, View):
                         values=[],
                     )
 
-    def update_trace_textbox(self, text: str):
+    def update_trace_textbox(self, text: str) -> None:
         self.update_text_box(self.trace_textbox, text)
 
-    def update_xcp_textbox(self, text: str):
+    def update_xcp_textbox(self, text: str) -> None:
         self.update_text_box(self.xcp_textbox, text)
 
     @staticmethod
-    def update_text_box(text_box: customtkinter.CTkTextbox, text: str):
+    def update_text_box(text_box: customtkinter.CTkTextbox, text: str) -> None:
         text_box.configure(state="normal")
         text_box.delete(1.0, END)
         text_box.insert("0.0", text)
@@ -314,4 +315,4 @@ class MainView(customtkinter.CTk, View):
 
 
 if __name__ == "__main__":
-    MainView().mainloop()
+    MainView(EventManager()).mainloop()

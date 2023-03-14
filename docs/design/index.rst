@@ -15,8 +15,8 @@ The Presenter subscribes to the Event Manager to handle these events and updates
 The implementation above uses the Model-View-Presenter (MVP) design pattern along with the Event Manager to handle events and communication between the components.
 Here are some advantages of this implementation:
 
-* **Separation of Concerns:** 
-   This pattern pattern separates the responsibilities of the View and Presenter into distinct components, which makes the code easier to read, test, and maintain. 
+* **Separation of Concerns:**
+   This pattern pattern separates the responsibilities of the View and Presenter into distinct components, which makes the code easier to read, test, and maintain.
    The Event Manager also helps to decouple the components, making it easier to modify and extend the code without affecting other parts.
 * **Testability:**
    The Presenter acts as a mediator between the View and the underlying functionality, which allows for easy unit testing of the Presenter without needing to test the user interface.

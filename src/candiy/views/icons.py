@@ -23,7 +23,7 @@ class Icons(Enum):
         self.file = self.resources_dir.joinpath(file_name).as_posix()
 
     @property
-    def image(self):
+    def image(self) -> customtkinter.CTkImage:
         return customtkinter.CTkImage(
             dark_image=Image.open(self.file),
             size=(30, 30),

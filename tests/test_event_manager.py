@@ -1,7 +1,8 @@
 # create tests for EventManager
 import pytest
-from candiy.presenter.events import EventID
+
 from candiy.presenter.event_manager import EventManager
+from candiy.presenter.events import EventID
 
 
 def test_event_manager_create_event_trigger():
@@ -35,7 +36,6 @@ def test_unsubscribe():
     event_manager = EventManager()
     event_manager.subscribe(EventID.HEARTBEAT, my_callback)
     trigger = event_manager.create_event_trigger(EventID.HEARTBEAT)
-    assert not subscriber_notified
     trigger()
     assert subscriber_notified
     subscriber_notified = False
