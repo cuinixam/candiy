@@ -27,7 +27,7 @@
     },
     {
       "label": "run tests",
-      "command": "poetry run pytest",
+      "command": "poetry run pytest --cov",
       "type": "shell",
       "presentation": {
         "reveal": "always"
