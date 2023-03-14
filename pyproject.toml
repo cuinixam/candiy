@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "candiy"
-version = "0.0.1"
+version = "0.0.2"
 description = "GUI to monitor a CAN network and communicate with an ECU."
 authors = ["cuinixam <me@cuinixam.com>"]
 license = "MIT"
