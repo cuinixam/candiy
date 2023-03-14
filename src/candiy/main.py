@@ -16,12 +16,14 @@ class Candiy(Presenter):
         self.counter += 1
         self.view.update_text(f"Heartbeat {self.counter}")
 
+    def run(self):
+        self.view.mainloop()
+
 
 def main():
     event_manager = EventManager()
     view = MainView(event_manager)
-    Candiy(view, event_manager)
-    view.mainloop()
+    Candiy(view, event_manager).run()
 
 
 if __name__ == "__main__":

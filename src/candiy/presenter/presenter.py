@@ -6,3 +6,6 @@ from candiy.views.view import View
 class Presenter(Protocol):
     def __init__(self, view: View, event_manager: EventManager):
         ...
+
+    def run(self):
+        ...
