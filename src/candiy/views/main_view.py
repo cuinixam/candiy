@@ -86,12 +86,13 @@ class MainView(View):
         self.event_manager = event_manager
         self.messages: Dict[str, TraceViewData] = {}
 
-        # configure window
-        self.root.title("CANDIY")
-        self.root.geometry(f"{1080}x{580}")
+        if self.root:
+            # configure window
+            self.root.title("CANDIY")
+            self.root.geometry(f"{1080}x{580}")
 
-        # update app icon
-        self.root.iconbitmap(Icons.LOLLIPOP_ICON.file)
+            # update app icon
+            self.root.iconbitmap(Icons.LOLLIPOP_ICON.file)
 
         # create menu
         # TODO: Create menu. CTK does not yet have a custom Menu element.
@@ -115,10 +116,11 @@ class MainView(View):
 
         # ========================================================
         # configure grid
-        self.root.grid_columnconfigure(0, weight=1)
-        self.root.grid_rowconfigure(0, weight=0)
-        self.root.grid_rowconfigure(1, weight=1)
-        self.root.grid_rowconfigure(2, weight=0)
+        if self.root:
+            self.root.grid_columnconfigure(0, weight=1)
+            self.root.grid_rowconfigure(0, weight=0)
+            self.root.grid_rowconfigure(1, weight=1)
+            self.root.grid_rowconfigure(2, weight=0)
         main_toolbar.grid(row=0, column=0, padx=10, pady=(10, 0), sticky="nsew")
         tabview.grid(row=1, column=0, padx=10, sticky="nsew")
         status_frame.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
