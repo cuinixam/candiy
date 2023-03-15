@@ -30,6 +30,10 @@ extensions.append("m2r")
 # extensions.append("sphinxcontrib.drawio")
 # drawio_default_transparency = True
 
+# mermaid config - @see https://pypi.org/project/sphinxcontrib-mermaid/
+extensions.append("sphinxcontrib.mermaid")
+
+# Configure extensions for include doc-strings from code
 extensions.extend(
     ["sphinx.ext.autodoc", "sphinx.ext.autosummary", "sphinx.ext.napoleon"]
 )

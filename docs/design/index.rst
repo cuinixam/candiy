@@ -1,14 +1,44 @@
 Design
 ######
 
-.. image:: figures/design_pattern.png
+.. mermaid::
+
+   flowchart
+      P[Presenter] -->|subscribe| E[EventManager]
+      E --> |notify| P
+      V[View] -->|trigger| E
+      P --> |update_data| V
+
 
 In this diagram, you can see the three main components: View, Presenter, and Event Manager.
 The Event Manager handles the events and subscriptions, while the Presenter mediates between the View and the underlying functionality.
 The View interacts with the user and triggers events that are handled by the Event Manager.
 The Presenter subscribes to the Event Manager to handle these events and updates the View accordingly.
 
-.. image:: figures/main_classes.png
+.. mermaid::
+
+   classDiagram
+      class View{
+         +event_manager: EventManager
+         +update_data()
+      }
+
+      class EventManager{
+         -subscribers
+         +create_event:trigger(event_id) callable
+         +subscribe(event_id, callable)
+         +unsubscribe(event_id, callable)
+      }
+
+      class Presenter{
+         +event_manager: EventManager
+         +view: View
+         +run()
+      }
+
+      View "1" *-- EventManager
+      Presenter "1" *-- View
+      Presenter "1" *-- EventManager
 
 The implementation above uses the Model-View-Presenter (MVP) design pattern along with the Event Manager to handle events and communication between the components.
 Here are some advantages of this implementation:
